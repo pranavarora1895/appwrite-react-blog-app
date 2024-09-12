@@ -1,7 +1,8 @@
 import './App.css'
+import conf from './conf/conf'
 
 function App() {
-  console.log(import.meta.env.VITE_APPWRITE_BLOG)
+  console.log(conf.appwriteEndpoint)
 
   return (
     <>

@@ -1,8 +1,17 @@
-# React + Vite
+# AppWrite React Blog App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Following concepts are implemented:
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Cloud Backend
+
+> Implementation of Appwrite that gives BaaS (Backend as a Service) on Cloud (Similar to AWS).
+
+
+## Vendor Locking
+
+> Inorder to separate the dependency of Appwrite which is a Backend as a Service, a separate service has been created. This ensures separating the app if the app needs to be migrated to any other cloud platform.
+> Implementation of Clean Code
+
+
+### *To be continued ...*

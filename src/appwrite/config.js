@@ -1,5 +1,6 @@
+/* eslint-disable no-useless-catch */
 import conf from "../conf/conf";
-import { Client, Account, ID, Databases, Storage, Query } from "appwrite";
+import { Client, ID, Databases, Storage, Query } from "appwrite";
 
 export class Service {
     client = new Client();
@@ -15,7 +16,6 @@ export class Service {
     }
 
     async createPost({ title, slug, content, featuredImage, status, userID }) {
-        // eslint-disable-next-line no-useless-catch
         try {
             return await this.databases.createDocument(conf.appwriteDatabaseID, conf.appwriteCollectionID, slug, {
                 title,
@@ -30,7 +30,6 @@ export class Service {
     }
 
     async updatePost(slug, { title, content, featuredImage, status }) {
-        // eslint-disable-next-line no-useless-catch
         try {
             return await this.databases.updateDocument(conf.appwriteDatabaseID, conf.appwriteCollectionID, slug, {
                 title,
@@ -45,11 +44,10 @@ export class Service {
     }
 
     async deletePost(slug) {
-        // eslint-disable-next-line no-useless-catch
         try {
             await this.databases.deleteDocument(conf.appwriteDatabaseID, conf.appwriteCollectionID, slug);
             return true
-        } catch () {
+        } catch {
             return false;
         }
     }
@@ -60,9 +58,6 @@ export class Service {
                 conf.appwriteDatabaseID,
                 conf.appwriteCollectionID,
                 slug,
-                // [
-                //     Query.equal('slug', slug)
-                // ]
             )
 
         } catch (error) {

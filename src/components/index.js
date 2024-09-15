@@ -3,5 +3,6 @@ import Footer from "./Footer/Footer";
 import Container from "postcss/lib/container";
 import Logo from "./Logo";
 import LogoutButton from "./Header/LogoutButton";
+import RTE from "./RTE";
 
-export { Header, Footer, Container, Logo, LogoutButton }
+export { Header, Footer, Container, Logo, LogoutButton, RTE }

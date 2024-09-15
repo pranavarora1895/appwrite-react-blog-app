@@ -16,7 +16,7 @@ const Select = React.forwardRef(function Select(
                 duration-200 border border-gray-200 w-full ${className}`}
             >
                 {options?.map((option) => {
-                    <option value={option} key={option}>{option}</option>
+                    <option value={option === 'active' ? true : false} key={option}>{option}</option>
                 })}
             </select>
         </div>

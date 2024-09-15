@@ -28,10 +28,13 @@ Following concepts are implemented:
 ## React Hook Form
 
 > Usage of React hook form for signup and login
+> Slug Transformation: used `watch` method of React hook form to watch the activity of the `title` field and transformed slug based on the `title`.
 
 
 ## Mechanism to protect pages and routes
 
 > Protected Container is created to protect pages and routes
+
+
 
 ## _To be continued..._

@@ -15,4 +15,23 @@ Following concepts are implemented:
 > Implementation of Clean Code
 
 
-### *To be continued ...*
+## Redux Store
+
+> Redux Toolkit is used to track the authentication (login and logout)
+
+
+## Components Reusablity
+
+> useForwardRef is used to transfer the state from parent to child component
+
+
+## React Hook Form
+
+> Usage of React hook form for signup and login
+
+
+## Mechanism to protect pages and routes
+
+> Protected Container is created to protect pages and routes
+
+## _To be continued..._

@@ -13,7 +13,7 @@ import AllPosts from './pages/AllPosts.jsx'
 import AddPost from './pages/AddPost.jsx'
 import EditPost from './pages/EditPost.jsx'
 import Post from './pages/Post.jsx'
-
+import { Analytics } from "@vercel/analytics/react"
 
 const router = createBrowserRouter([
   {
@@ -78,7 +78,8 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router}/>
+      <Analytics />
+      <RouterProvider router={router} />
     </Provider>
   </StrictMode>
   ,

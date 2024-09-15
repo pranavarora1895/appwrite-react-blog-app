@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Logo, Input } from "..";
+import { Button, Logo, Input } from "./index";
 import authService from '../appwrite/auth';
 import { login as authLogin } from '../store/authSlice';
 import { useForm } from 'react-hook-form';
@@ -16,8 +16,8 @@ const SignUp = () => {
     const signup = async (data) => {
         setError("")
         try {
-            const session = await authService.createAccount(data)
-            if (session) {
+            const userData = await authService.createAccount(data)
+            if (userData) {
                 const userData = await authService.getCurrentUser()
                 if (userData) dispatch(authLogin(userData))
                 navigate('/')
@@ -65,7 +65,6 @@ const SignUp = () => {
                             type="email"
                             {...register("email", {
                                 required: true,
-                                pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
                             })}
                         />
 

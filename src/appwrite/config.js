@@ -11,8 +11,8 @@ export class Service {
         this.client
             .setEndpoint(conf.appwriteEndpoint)
             .setProject(conf.appwriteProjectID)
-        this.databases = new Databases(conf.appwriteDatabaseID)
-        this.bucket = new Storage(conf.appwriteBucketID)
+        this.databases = new Databases(this.client)
+        this.bucket = new Storage(this.client)
     }
 
     async createPost({ title, slug, content, featuredImage, status, userID }) {
@@ -54,7 +54,7 @@ export class Service {
 
     async getPost(slug) {
         try {
-            await this.databases.getDocument(
+            return await this.databases.getDocument(
                 conf.appwriteDatabaseID,
                 conf.appwriteCollectionID,
                 slug,
@@ -65,11 +65,12 @@ export class Service {
         }
     }
 
-    async getPosts(queries = [Query.equal('status', true)]) {
+    async getPosts(queries = [Query.equal('status', 'active')]) {
         try {
-            await this.databases.listDocuments(conf.appwriteDatabaseID, conf.appwriteCollectionID, queries)
+            return await this.databases.listDocuments(conf.appwriteDatabaseID, conf.appwriteCollectionID, queries)
         } catch (error) {
-            throw error;
+            console.log("Appwrite Error: getPosts: error: ", error)
+            return false
         }
     }
 

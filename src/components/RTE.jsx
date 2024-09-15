@@ -14,6 +14,7 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
                 render={({ field: { onChange } }) => (
                     <Editor
                         initialValue={defaultValue}
+                        apiKey={import.meta.env.VITE_TINY_MCR_API_KEY}
                         init={{
                             height: 500,
                             menubar: true,

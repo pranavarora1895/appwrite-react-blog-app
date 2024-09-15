@@ -37,5 +37,5 @@ Following concepts are implemented:
 > Protected Container is created to protect pages and routes
 
 
+## TinyMCE Rich Text Editor
 
-## _To be continued..._

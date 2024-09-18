@@ -19,6 +19,8 @@ Following concepts are implemented:
 
 > Redux Toolkit is used to track the authentication (login and logout)
 
+> In the branch named `post-redux`, postSlice has been created to cache the posts to minimize the GET request from the server.
+
 
 ## Components Reusablity
 

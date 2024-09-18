@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form'
 import { Button, Input, Select, RTE } from "../index"
 import service from '../../appwrite/config'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { addPost } from '../../store/postSlice'
 
 
 function PostForm({ post }) {
@@ -19,6 +20,7 @@ function PostForm({ post }) {
         }
     )
     const userData = useSelector(state => state.auth.userData)
+    const dispatch = useDispatch()
 
     const submitPost = async (data) => {
         if (post) {
@@ -39,6 +41,7 @@ function PostForm({ post }) {
                 const fileID = file.$id
                 data.featuredImage = fileID
                 const dbPost = await service.createPost({ ...data, userID: userData.$id })
+                if (dbPost) dispatch(addPost(dbPost))
                 navigate(`/post/${dbPost.$id}`)
             }
 

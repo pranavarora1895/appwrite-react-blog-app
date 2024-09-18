@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react"
 import service from "../appwrite/config"
 import { Container, PostCard } from "../components"
+import { useDispatch } from "react-redux"
+import { addPosts } from "../store/postSlice"
 
 const Home = () => {
     const [posts, setPosts] = useState([])
+    const dispatch = useDispatch()
 
     useEffect(() => {
         service.getPosts()
             .then((posts) => {
-                if (posts) setPosts(posts.documents)
+                if (posts) {
+                    setPosts(posts.documents)
+                    dispatch(addPosts(posts.documents))
+                }
             })
     }, [])
 

@@ -5,11 +5,15 @@ import { Container, PostCard } from '../components'
 const AllPosts = () => {
     const [posts, setPosts] = useState([])
 
+
     useEffect(() => {
         service.getPosts([])
             .then((posts) => {
-                if (posts) setPosts(posts.documents)
-                    
+                if (posts) {
+                    setPosts(posts.documents)
+                }
+
+
             })
     }, [])
 
